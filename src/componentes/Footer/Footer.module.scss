@@ -1,0 +1,117 @@
+@import "../../estilos/variables";
+@import "../../estilos/mixins";
+
+.footer {
+  background-color: $color-white;
+  padding-top: 60px;
+  color: #3f3f3f;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 60px;
+  padding: 0 20px;
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+  }
+}
+
+.columnLogo {
+  max-width: 300px;
+}
+
+.logo {
+  margin-bottom: 20px;
+  img {
+    height: 40px;
+  }
+}
+
+.logoText {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  color: #3f3f3f;
+}
+
+.social {
+  display: flex;
+  gap: 20px;
+
+  a {
+    color: #3f3f3f;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-pink;
+    }
+  }
+
+  @include respond-to(tablet) {
+    justify-content: center;
+  }
+}
+
+.column {
+  min-width: 150px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #1e1e1e;
+}
+
+.list {
+  li {
+    margin-bottom: 15px;
+
+    a {
+      font-size: 14px;
+      font-weight: 400;
+      color: #3f3f3f;
+
+      &:hover {
+        color: $color-pink;
+      }
+    }
+  }
+}
+
+.bottom {
+  border-top: 1px solid #e6e6e6;
+  padding: 30px 0;
+}
+
+.bottomContent {
+  @include flex-between;
+  gap: 20px;
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.copyright {
+  font-size: 12px;
+  color: #3f3f3f;
+  max-width: 600px;
+}
+
+.bottomLogos {
+  @include flex-center;
+  gap: 20px;
+}
+
+.logoSmall {
+  height: 25px;
+  opacity: 0.5;
+}

@@ -1,0 +1,178 @@
+@import "../../estilos/variables";
+@import "../../estilos/mixins";
+
+.header {
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  background-color: $color-white;
+}
+
+.topBar {
+  border-bottom: 1px solid $color-border;
+  padding: 10px 0;
+}
+
+.topBarContent {
+  @include flex-center;
+  gap: 80px;
+
+  @include respond-to(tablet) {
+    gap: 15px;
+    justify-content: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 5px;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}
+
+.infoItem {
+  @include flex-center;
+  gap: 8px;
+  color: $color-text-light;
+  font-size: 12px;
+  flex-shrink: 0;
+
+  strong {
+    color: $color-pink;
+    font-weight: 600;
+  }
+}
+
+.mainBar {
+  padding: 20px 0;
+  border-bottom: 1px solid $color-border;
+}
+
+.mainContent {
+  @include flex-between;
+  gap: 20px;
+
+  @include respond-to(tablet) {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "logo actions"
+      "search search";
+    gap: 15px;
+    padding: 0 15px;
+  }
+}
+
+.logo {
+  @include respond-to(tablet) {
+    grid-area: logo;
+  }
+  img {
+    height: 50px;
+    width: auto;
+
+    @include respond-to(tablet) {
+      height: 35px;
+    }
+  }
+}
+
+.search {
+  flex: 1;
+  max-width: 716px;
+  position: relative;
+  @include flex-center;
+
+  @include respond-to(tablet) {
+    grid-area: search;
+    width: 100%;
+    max-width: none;
+  }
+
+  input {
+    width: 100%;
+    padding: 14px 24px;
+    background: $color-bg;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+    outline: none;
+
+    @include respond-to(tablet) {
+      padding: 12px 20px;
+    }
+
+    &::placeholder {
+      color: $color-text-light;
+    }
+  }
+
+  button {
+    position: absolute;
+    right: 24px;
+    @include flex-center;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    @include respond-to(tablet) {
+      right: 15px;
+
+      svg {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.actions {
+  @include flex-center;
+  gap: 30px;
+
+  @include respond-to(tablet) {
+    grid-area: actions;
+    justify-self: end;
+    gap: 20px;
+  }
+}
+
+.actionItem {
+  @include flex-center;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+.nav {
+  padding: 15px 0;
+}
+
+.navList {
+  @include flex-between;
+
+  @include respond-to(tablet) {
+    overflow-x: auto;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-bottom: 5px;
+  }
+}
+
+.navItem {
+  font-size: 12px;
+  font-weight: 600;
+  color: $color-text-light;
+  white-space: nowrap;
+
+  &:hover,
+  &Highlight {
+    color: $color-pink;
+  }
+}
+
+.navItemHighlight {
+  @include flex-center;
+  gap: 8px;
+}

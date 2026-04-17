@@ -1,0 +1,162 @@
+@import '../../estilos/variables';
+@import '../../estilos/mixins';
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  @include flex-center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal {
+  background: $color-white;
+  width: 100%;
+  max-width: 769px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 4px;
+  position: relative;
+  padding: 50px;
+  animation: fadeIn 0.3s ease;
+
+  @include respond-to(tablet) {
+    padding: 40px 20px 20px;
+    max-width: 95%;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  @include flex-center;
+  background: white;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.content {
+  display: flex;
+  gap: 60px;
+
+  @include respond-to(tablet) {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+}
+
+.imageContainer {
+  flex: 1;
+  max-width: 250px;
+  @include flex-center;
+
+  @include respond-to(tablet) {
+    max-width: 200px;
+  }
+
+  .image {
+    max-width: 100%;
+    max-height: 250px;
+    object-fit: contain;
+  }
+}
+
+.details {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+
+  @include respond-to(tablet) {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #041E50;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #041E50;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 10px;
+  line-height: 1.5;
+  color: #222222;
+  margin-bottom: 10px;
+}
+
+.detailsLink {
+  font-size: 12px;
+  color: #041E50;
+  margin-bottom: 25px;
+  font-weight: 400;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+
+  @include respond-to(mobile) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.quantity {
+  @include flex-between;
+  border: 1px solid #041E50;
+  border-radius: 4px;
+  width: 110px;
+  padding: 8px 15px;
+
+  button {
+    font-size: 20px;
+    color: #041E50;
+  }
+
+  span {
+    font-size: 16px;
+    font-weight: 700;
+    color: #041E50;
+  }
+}
+
+.buyButton {
+  background-color: $color-pink;
+  color: $color-white;
+  padding: 12px 60px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex: 1;
+
+  @include respond-to(mobile) {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
